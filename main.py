@@ -1,5 +1,5 @@
 import cv2
-import numpy as np
+import os
 from sklearn.cluster import KMeans
 
 
@@ -22,14 +22,24 @@ def aplicar_kmeans_e_reconstruir(imagem, k):
 
 kValues = [2, 3, 4, 5, 6, 7, 8]
 
-imagens = ["imagem1.jpg"]
+pasta_originais = "originais/"
+imagens = ["imagem2.jpg"]
 
 for imagem in imagens:
-    imagemOriginal = cv2.imread(imagem)
-
+    imagemOriginal = cv2.imread(pasta_originais+imagem)
+    print(imagemOriginal)
     # Loop sobre cada valor de k
     for k in kValues:
         # Aplica k-médias e reconstrói a imagem
         imagem_reconstruida, centroides = aplicar_kmeans_e_reconstruir(imagemOriginal, k)
-        # Salva a imagem 
-        cv2.imwrite(f'reconstruida_{imagem}_k{k}.jpg', imagem_reconstruida)
+        # Cria o diretório se não existir
+        pasta_k = f'k-means/k_{k}'
+        if not os.path.exists(pasta_k):
+            os.makedirs(pasta_k)
+
+        # Obtém o nome da imagem sem o caminho
+        nome_imagem_sem_caminho = os.path.basename(imagem)
+
+        # Salva a imagem na pasta correspondente ao valor de k
+        caminho_imagem_reconstruida = os.path.join(pasta_k, f'reconstruida_{nome_imagem_sem_caminho}_k{k}.jpg')
+        cv2.imwrite(caminho_imagem_reconstruida, imagem_reconstruida)
