@@ -1,4 +1,4 @@
-<details>
+<details close>
     <summary>Requeriments</summary>
     
     `
@@ -8,7 +8,7 @@
 
 </details>
 
-<details>
+<details close>
     <summary>Possible errors</summary>
     
     #### If you have this error:
