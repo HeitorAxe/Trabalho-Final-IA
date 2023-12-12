@@ -29,7 +29,8 @@ def getInfoOfFile(path: str) -> {"resolution": tuple, "size": str, "colors-quant
     unique_colors = len(np.unique(image.reshape((-1, 3)), axis=0))
     return {'resolution': resolution, 'size': f"{size_kb:.2f} KB", 'colors-quantity': unique_colors}
 
-kValues = [2, 5, 10, 15, 20, 25, 30]
+#kValues = [2, 5, 10, 15, 20, 25, 30]
+kValues = [2, 10, 30, 50, 70, 90, 128]
 pasta_originais = "originais/"
 pasta_destino = ""
 
