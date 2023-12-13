@@ -1,0 +1,20 @@
+{
+    "imagem": "imagem4",
+    "k": 50,
+    "original": {
+        "resolution": [
+            4825,
+            3265
+        ],
+        "size": "46233.08 KB",
+        "colors-quantity": 530918
+    },
+    "nova": {
+        "resolution": [
+            4825,
+            3265
+        ],
+        "size": "7697.51 KB",
+        "colors-quantity": 50
+    }
+}
